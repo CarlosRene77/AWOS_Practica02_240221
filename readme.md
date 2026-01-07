@@ -16,4 +16,4 @@ Esta práctica será desarrollada con estructura de ramales para el estudiante c
 
 |No.|Descripción|Potenciador|Estatus|
 | --- | --- | --- | --- |
-|1.| Declaración de Variables| 1 | 💻En progreso |
+| 1. | Declaración de Variables | 1 | 💻En progreso |
