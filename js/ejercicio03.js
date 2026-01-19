@@ -126,3 +126,56 @@ lastLogin = new Date("2025/12/31");
 console.log("Test 2 - Fecha de último acceso es diferente a la fecha de hoy");
 console.log(`La fecha del último acceso es: ${lastLogin}`);
 console.log(`El usuario logueado es: ${isNewUser()? "Nuevo usuario":"Usuario Antiguo."} `);
+
+
+// 6. Funciones Anónimas con Parámetros (Vérsion Arrow o Lambda)
+
+const sumar = (a, b) => {
+    let resultado = a + b;
+    return resultado;
+};
+
+
+console.warn("6. Funcione anonimas con parametros")
+console.log(`El resultado de la suma de 15 + 83 es: ${sumar(15,83)}`);
+
+/*Cuando la función anónima tiene solo una linea de operación se puede usar una version simplificada que
+no usa {} llaves, ni la palabra reservada (return)*/
+
+const multiplicar = (a,b) => a*b;
+console.log(`El resultado de la suma de 15 + 125 es: ${multiplicar(15,125)}`);
+
+// 7. Funciones Callback (Regreso de llamada)
+console.warn("7. Funciones Anónimas Callback (respuesta)");
+
+const recoverPassword = function (email, callback) {
+    // Generamos el código a enviar al usuario.
+    const recoveryCode = Math.floor(100000 + Math.random() * 900000);
+
+    console.log(`
+        ======================================================================
+        Solicitud de recuperación recibida
+        Correo del usuario solicitante: ${email}
+        Generando Código de Recuperación...
+        Código de Seguridad Generado: ${recoveryCode}
+        Enviando el correo al usuario...
+        Correo Enviado a: ${email}, con el código de seguridad: ${recoveryCode}
+        ======================================================================
+    `);
+
+    // Definiendo la respuesta del sistema
+    const response = {
+        status: "OK",
+        message: "Código de recuperación enviado satisfactoriamente."
+    };
+
+    // Ejecutar callback
+    callback(response);
+};
+
+// Invocación de una función callback 
+recoverPassword("marco@gmail.com", 
+    function (systemResponse) {
+    console.log("Respuesta del sistema:");
+    console.log(systemResponse.message);
+});
